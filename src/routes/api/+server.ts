@@ -2,6 +2,7 @@ import type { RequestHandler } from "@sveltejs/kit";
 import markdownpdf from 'markdown-pdf'
 import tmp from 'tmp'
 import fs from 'fs'
+import through from 'through2'
 
 import simpleTheme from '$lib/themes/simple.css'
 
@@ -39,6 +40,19 @@ export const POST: RequestHandler = async ({ request }) => {
 
     // Build Markdown options
     let options = { cssPath: cssFile.name }
+
+    // Uncomment to log HTML output
+    // options = {
+    //     cssPath: cssFile.name, preProcessHtml: () => through.obj(function (chunk, encoding, callback) {
+    //         console.log('Received:', chunk.toString(encoding));
+
+    //         this.push(chunk.toString());
+
+    //         callback();
+    //     })
+
+    // }
+
 
     // Write PDF
     const tmpPdfFile = tmp.fileSync();
