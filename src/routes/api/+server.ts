@@ -2,28 +2,27 @@ import type { RequestHandler } from "@sveltejs/kit";
 import markdownpdf from 'markdown-pdf'
 import tmp from 'tmp'
 import fs from 'fs'
-import through from 'through2'
 
 import simpleTheme from '$lib/themes/simple.css'
 
-export const POST: RequestHandler = async ({ request }) => {
-    let formData = await request.formData()
+export const POST: RequestHandler = async ({ request  }): Promise<Response> => {
+    let formData: FormData = await request.formData()
 
     // Get Markdown
-    let markdownText = formData.get('markdown') as string
+    let markdownText: string = formData.get('markdown') as string
 
     if (!markdownText) {
         return new Response('No markdown provided', { status: 400 })
     }
 
-    const tmpMdFile = tmp.fileSync();
+    const tmpMdFile: tmp.FileResult = tmp.fileSync();
     fs.writeFileSync(tmpMdFile.name, markdownText)
 
 
     // Get Theme
-    let cssFile = tmp.fileSync();
+    let cssFile: tmp.FileResult = tmp.fileSync();
 
-    let theme = formData.get('theme') as string
+    let theme: string = formData.get('theme') as string
 
     if (!theme) {
         theme = 'simple'
@@ -32,7 +31,7 @@ export const POST: RequestHandler = async ({ request }) => {
     fs.writeFileSync(cssFile.name, getTheme(theme))
 
     // Add custom CSS
-    let customCss = formData.get('css') as string
+    let customCss: string = formData.get('css') as string
 
     if (customCss) {
         fs.appendFileSync(cssFile.name, customCss)
@@ -55,7 +54,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 
     // Write PDF
-    const tmpPdfFile = tmp.fileSync();
+    const tmpPdfFile: tmp.FileResult = tmp.fileSync();
 
     let pdfFile = new Promise((resolve, reject) => markdownpdf(options).from(tmpMdFile.name).to(tmpPdfFile.name, () => {
         fs.readFile(tmpPdfFile.name, (err, data) => err ? reject(err) : resolve(data))
