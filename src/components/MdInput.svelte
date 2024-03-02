@@ -1,6 +1,8 @@
 <script>
-	export let markdown = "";
+
+	export let mdValue = "";
+
 
 </script>
 
-<textarea id="mdInput" bind:value={markdown} ></textarea>
+<textarea id="mdInput" bind:value={mdValue} ></textarea>
