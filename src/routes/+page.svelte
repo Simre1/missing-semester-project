@@ -5,11 +5,12 @@
 	import '@fontsource/londrina-shadow';
 	import '@fontsource-variable/inter';
 	import '@fontsource-variable/material-symbols-rounded';
-
+	import '@tsparticles/confetti';
 
 
 	import {makePdf} from '$lib/makePdf.ts';
 	import CSSInput from '../components/CSSInput.svelte';
+	import { confetti } from '@tsparticles/confetti';
 
 	$: compileDisabled = (mdValue === "");
 	$: hiddenCSS = true
@@ -47,6 +48,11 @@
 				//console.log(base64data);
 				pdf = String(base64data).replace("octet-stream", "pdf");
 				//console.log(pdf)
+				confetti({
+					particleCount: 200,
+					spread: 60,
+					origin: { y: 0.7 },
+				});
 			}
 		});
 	}
