@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '@fontsource-variable/jetbrains-mono';
 	export let mdValue: String = "";
 
 	import loader from '@monaco-editor/loader';
@@ -19,7 +18,7 @@
 
 		monaco = await loader.init();
 
-		const editor = monaco.editor.create(editorContainer, {theme: "vs-dark"});
+		const editor = monaco.editor.create(editorContainer, {theme: "vs", automaticLayout: true});
 		const model = monaco.editor.createModel(
 			"",
 			'markdown'
@@ -38,14 +37,15 @@
 
 </script>
 
-<div bind:this={editorContainer}></div>
+
+	<div id="editor" bind:this={editorContainer}></div>
+
 <!--<textarea id="mdInput" bind:value={mdValue} ></textarea>-->
 
 <style>
-	div {
-      font-family: 'JetBrains Mono Variable', monospace;
-			width: 100%;
-			height: 100%;
-			margin: 0;
-	}
+
+  #editor {
+      height: calc(100% - 30px);
+      width: 100%;
+  }
 </style>
