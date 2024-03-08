@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import {MdInput} from '../components/MdInput.js';
-	import {PdfView} from '../components/PdfView.js';
+	import MdInput from '../components/MdInput.svelte';
+	import PdfView from '../components/PdfView.svelte';
+	import ApacheLicense from '../components/ApacheLicense.svelte';
+	import MITLicense from '../components/MITLicense.svelte';
 	import '@fontsource/londrina-shadow';
 	import '@fontsource-variable/inter';
 	import '@fontsource-variable/material-symbols-rounded';
@@ -61,14 +63,17 @@
 		hiddenCSS = !hiddenCSS
 		calculateWidths()
 		if (hiddenCSS) {
-			cssButton.textContent = "Open CSS input"
+			cssButton.innerHTML = "&#58313<span style='font-size: 0'>Show CSS</span>"
 		} else {
-			cssButton.textContent = "Close CSS input"
+			cssButton.innerHTML = "&#59728<span style='font-size: 0'>Close CSS Input</span>"
 		}
 	}
 
-	async function showAbout() {
-		aboutDialog.open = !aboutDialog.open
+	async function toggleAbout() {
+		if (!aboutDialog.open)
+			aboutDialog.showModal(); // we use showmodal instead of the HTML elements open property,
+															 // as only then, the ::backdrop pseudo class is used!
+		else aboutDialog.close();
 	}
 
 	onMount(async () => {
@@ -95,23 +100,39 @@
 
 <header>
 	<h1>MarkDownie's PDF Party</h1>
-	<img src="logo.svg" alt="Logo of MarkDownie's PDF Party">
-
-	<button id="showcss" type="button" on:click={toggleCSS} bind:this={cssButton}>Open CSS input</button>
-
+	<button id="showcss" type="button" on:click={toggleCSS} bind:this={cssButton}>&#58313<span>Show CSS</span></button>
 	<button id="compile" type="button" on:click={compile} disabled={compileDisabled} bind:this={compileButton}>
 		&#58837<span>Compile</span>
-</button>
-	<button id="showabout" type="button" on:click={showAbout}>About + Help</button>
-
+	</button>
+	<button id="showabout" type="button" on:click={toggleAbout}>Help<span>Show about and help dialog</span></button>
 </header>
 <main bind:this={mainElement} >
 	<dialog bind:this={aboutDialog}>
-		<h1>About McDownies PDF Party</h1>
-		<div>Description</div>
-		<h2>Used open-source projects and libraries:</h2>
+		<button id="closeabout" on:click={toggleAbout}>Close<span>Close the help dialog</span></button>
+		<h1>About <span>McDownie's PDF Party</span></h1>
+		<p>Welcome to McDownie's PDF Party - your easy to use Markdown to PDF converter.</p>
+		<p>To convert Markdown encoded text, paste it into the editor on the left.
+			Press then compile button (<span>&#58837</span>) to create a PDF out of it, which gets then displayed on the right.
+			As a special service, everytime you compile, a (harmless) surprise will happen to brighten up your day. 🎉🥳</p>
+		<p>Per default, a minimalistic CSS theme is used for the PDF creation.
+			If you would like to adjust the theme or use you own,
+			open the CSS editor (using <span>&#58313</span> Button),
+			which will then be displayed in the center.
+			By writing CSS for standard HTML element identifiers
+			(<code>h1</code>, <code>p</code>, ...)
+			you can adjut the style of the PDF.
+			Please note, that the entered CSS is only applied, if the editor is opened.
+		</p>
+		<h2>Used open-source projects, libraries and trademarks:</h2>
+		<p>For the creation of McDownie's PDF Party,
+			we entered the JavaScript Hell and use a number open-source projects as listed below:
+		</p>
 		<ul>
-			<li>dfghjklö</li>
+			<li><MITLicense name="markdown-pdf" owner="Alan Shaw" year="2013"/></li>
+			<li><ApacheLicense name="Material Symbols" owner="Google" year="2024"/></li>
+			<li><MITLicense name="Monaco Editor" owner="Microsoft Corporation" year="2016 - present"/></li>
+			<li><MITLicense name="Svelte" owner="the contributors of the repository at https://github.com/sveltejs/svelte" year="2016 - 2024"></MITLicense></li>
+			<li><MITLicense name="tsParticles" owner="Matteo Bruni" year="2020"/> </li>
 		</ul>
 	</dialog>
 	<div bind:this={markdownWrapper}>
@@ -119,7 +140,7 @@
 		<MdInput bind:mdValue={mdValue}></MdInput>
 	</div>
 	<div bind:this={cssWrapper} hidden="{hiddenCSS}">
-		<div class="columnTitle">Custom CSS styles</div>
+		<div class="columnTitle">Custom CSS styles:</div>
 		<CSSInput bind:cssValue={cssValue}></CSSInput>
 	</div>
 	<div bind:this={pdfWrapper}>
@@ -143,6 +164,32 @@ dialog {
     top: 10%;
 		width: calc(100% - 200px);
 		height: 80%;
+		border-color: #305b80;
+		border-width: 10px;
+		font-size: 16px;
+}
+
+dialog::backdrop {
+		background-color: rgba(0,0,0,50%);
+}
+
+dialog > h1 {
+		margin: 0;
+		font-size: 35px;
+		margin-bottom: 10px;
+}
+
+dialog > h1, dialog > h2 {
+    color: #305b80;
+
+}
+
+dialog > h1 > span {
+    font-family: 'Londrina Shadow','Inter Variable', sans-serif;;
+}
+
+dialog > p > span {
+    font-family: 'Material Symbols Rounded Variable', sans-serif;
 }
 
 header {
@@ -160,7 +207,7 @@ header {
 }
 header > h1 {
 		margin: 0;
-    font-family: 'Londrina Shadow', system-ui;
+    font-family: 'Londrina Shadow', 'Inter Variable', sans-serif;
 		margin-top: 0.2em;
 		margin-left: 0.3em;
 		font-size: 40px;
@@ -194,6 +241,7 @@ background-color: white;
 		margin-top: 5px;
 		height: 25px;
 		font-size: 16px;
+		margin-left: 12px;
 }
 
 #prompt {
@@ -209,12 +257,21 @@ background-color: white;
 		font-size: 30px;
 }
 
-#compile, #showcss, #showabout{
-    position: absolute;
-    top: 0;
+#compile, #showcss, #showabout, #closeabout{
     border: none;
     background-color: #305b80;
     color: white;
+    font-family: 'Material Symbols Rounded Variable', sans-serif;
+    font-size: 40px;
+}
+
+#compile, #showcss, #showabout {
+    position: absolute;
+    top: 0;
+}
+
+#compile > span, #showcss > span, #showabout > span, #closeabout > span  {
+    font-size: 0;
 }
 
 #compile {
@@ -222,22 +279,25 @@ background-color: white;
 		width: 88px;
 		height: 88px;
 		border-radius: 44px;
-    font-family: 'Material Symbols Rounded Variable', sans-serif;
-		font-size: 40px;
 		z-index: 10;
 
 }
 
 #showcss {
 		height: 60px;
-		width:165px;
+		width:120px;
     right: calc(50%);
 		text-align: left;
 }
 
+#closeabout {
+		position: fixed;
+		right: 115px;
+}
+
 #showabout {
     height: 60px;
-    width:140px;
+    width:120px;
     left: calc(50%);
     text-align: right;
 }
@@ -248,8 +308,6 @@ background-color: white;
 
 
 
-#compile > span {
-		font-size: 0;
-}
+
 
 </style>
