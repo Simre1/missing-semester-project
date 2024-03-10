@@ -13,9 +13,6 @@ export const POST: RequestHandler = async ({ request }): Promise<Response> => {
         return new Response('No markdown provided', { status: 400 })
     }
 
-    const tmpMdFile: tmp.FileResult = tmp.fileSync();
-    fs.writeFileSync(tmpMdFile.name, markdownText)
-
     // Add base CSS
     let cssFile: tmp.FileResult = tmp.fileSync();
 
@@ -43,16 +40,16 @@ export const POST: RequestHandler = async ({ request }): Promise<Response> => {
 
     // }
 
-
-    // Write PDF
-    const tmpPdfFile: tmp.FileResult = tmp.fileSync();
-
-    let pdfFile = new Promise((resolve, reject) => markdownpdf(options).from(tmpMdFile.name).to(tmpPdfFile.name, () => {
-        fs.readFile(tmpPdfFile.name, (err, data) => err ? reject(err) : resolve(data))
+    let pdfData = new Promise((resolve, reject) => markdownpdf(options).from.string(markdownText).to.buffer(null, (err, buffer) => {
+        if (err) {
+            reject(err)
+        } else {
+            resolve(buffer)
+        }
     }))
 
     // Return PDF file
-    let response: Response = new Response(await pdfFile, { status: 200 })
+    let response: Response = new Response(await pdfData, { status: 200 })
 
     return response
 };
