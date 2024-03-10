@@ -116,7 +116,7 @@
 			As a special service, everytime you compile, a (harmless) surprise will happen to brighten up your day. 🎉🥳</p>
 		<p>Per default, a minimalistic CSS theme is used for the PDF creation.
 			If you would like to adjust the theme or use you own,
-			open the CSS editor (using <span>&#58313</span> Button),
+			open the CSS editor (using the <span>&#58313</span> button),
 			which will then be displayed in the center.
 			By writing CSS for standard HTML element identifiers
 			(<code>h1</code>, <code>p</code>, ...)
@@ -147,7 +147,7 @@
 	{#if mdValue === "" && pdf === ""}
 		<div id="prompt"><p>Enter Markdown code to start your PDF party!<br>🎉🥳</p></div>
 	{:else if mdValue !== "" && pdf === ""}
-		<div id="prompt"><p>Run compile to display the pdf</p></div>
+		<div id="prompt"><p>Run compile to display the PDF.</p></div>
 	{:else}
 			<PdfView bind:pdfBlob={pdf}></PdfView>
 	{/if}
