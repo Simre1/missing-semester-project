@@ -3,9 +3,7 @@ import markdownpdf from 'markdown-pdf'
 import tmp from 'tmp'
 import fs from 'fs'
 
-import simpleTheme from '$lib/themes/simple.css'
-
-export const POST: RequestHandler = async ({ request  }): Promise<Response> => {
+export const POST: RequestHandler = async ({ request }): Promise<Response> => {
     let formData: FormData = await request.formData()
 
     // Get Markdown
@@ -18,17 +16,10 @@ export const POST: RequestHandler = async ({ request  }): Promise<Response> => {
     const tmpMdFile: tmp.FileResult = tmp.fileSync();
     fs.writeFileSync(tmpMdFile.name, markdownText)
 
-
-    // Get Theme
+    // Add base CSS
     let cssFile: tmp.FileResult = tmp.fileSync();
 
-    let theme: string = formData.get('theme') as string
-
-    if (!theme) {
-        theme = 'simple'
-    }
-
-    fs.writeFileSync(cssFile.name, getTheme(theme))
+    fs.writeFileSync(cssFile.name, BASE_CSS)
 
     // Add custom CSS
     let customCss: string = formData.get('css') as string
@@ -66,14 +57,21 @@ export const POST: RequestHandler = async ({ request  }): Promise<Response> => {
     return response
 };
 
-
-function getTheme(theme: string): string {
-
-    switch (theme) {
-        case 'simple':
-            return simpleTheme.toString()
-        default:
-            throw new Error('Theme not found')
-    }
-
+const BASE_CSS: string = `
+body {
+    margin-left: 1em;
+    margin-right: 1em;
+    color: #080808;
 }
+
+code {
+    background-color: #f5f5f5;
+    display: block;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+pre {
+    border: none;
+}
+`
