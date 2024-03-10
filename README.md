@@ -44,4 +44,4 @@ To create a production version of your app:
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+You can preview the production build with `npm run preview` or start it in production with `node build/index.js`. If you are having issues with PhantomJS when running `node build/index.js`, use `OPENSSL_CONF=/dev/null node build/index.js`!
