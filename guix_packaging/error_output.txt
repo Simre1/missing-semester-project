@@ -1,0 +1,125 @@
+root@debian:~# guix package --install-from-file=test.scm
+guix package: warning: Consider running 'guix pull' followed by
+'guix package -u' to get up-to-date packages and security updates.
+
+The following package will be installed:
+   test 42.0
+
+substitute: updating substitutes from 'https://ci.guix.gnu.org'... 100.0%
+0.4 MB will be downloaded
+ glibc-utf8-locales-2.33  382KiB                                                                 1.6MiB/s 00:00 [##################] 100.0%
+substitute: updating substitutes from 'https://ci.guix.gnu.org'... 100.0%
+substitute: updating substitutes from 'https://bordeaux.guix.gnu.org'... 100.0%
+The following derivations will be built:
+  /gnu/store/ff4p9d7krsvkknqjk38qh1a8ca9vzij4-profile.drv
+  /gnu/store/f4wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv
+
+79.1 MB will be downloaded
+substitute: updating substitutes from 'https://ci.guix.gnu.org'... 100.0%
+ module-import-compiled  102KiB                                                                  1.6MiB/s 00:00 [##################] 100.0%
+ bash-static-5.1.8  646KiB                                                                       7.6MiB/s 00:00 [##################] 100.0%
+ glibc-utf8-locales-2.33  382KiB                                                                 2.2MiB/s 00:00 [##################] 100.0%
+ glibc-2.33  8.2MiB                                                                              7.4MiB/s 00:01 [##################] 100.0%
+ linux-libre-headers-5.10.35  1.1MiB                                                             5.4MiB/s 00:00 [##################] 100.0%
+ bash-minimal-5.1.8  569KiB                                                                     13.0MiB/s 00:00 [##################] 100.0%
+ binutils-2.37  5.0MiB                                                                           5.4MiB/s 00:01 [##################] 100.0%
+ gcc-10.3.0-lib  4.6MiB                                                                          6.9MiB/s 00:01 [##################] 100.0%
+ glibc-2.33-static  2.2MiB                                                                      24.0MiB/s 00:00 [##################] 100.0%
+ bzip2-1.0.8  168KiB                                                                            11.5MiB/s 00:00 [##################] 100.0%
+ coreutils-8.32  6.0MiB                                                                         21.3MiB/s 00:00 [##################] 100.0%
+ coreutils-minimal-8.32  6.0MiB                                                                 22.4MiB/s 00:00 [##################] 100.0%
+ diffutils-3.8  571KiB                                                                          13.9MiB/s 00:00 [##################] 100.0%
+ ed-1.17  60KiB                                                                                 13.9MiB/s 00:00 [##################] 100.0%
+ file-5.39  279KiB                                                                               2.7MiB/s 00:00 [##################] 100.0%
+ findutils-4.8.0  486KiB                                                                         7.6MiB/s 00:00 [##################] 100.0%
+ grep-3.6  283KiB                                                                                8.6MiB/s 00:00 [##################] 100.0%
+ libffi-3.3  67KiB                                                                              11.3MiB/s 00:00 [##################] 100.0%
+ gzip-1.10  80KiB                                                                                6.6MiB/s 00:00 [##################] 100.0%
+ gzip-1.10  89KiB                                                                               11.9MiB/s 00:00 [##################] 100.0%
+ libgc-8.0.4  214KiB                                                                             6.7MiB/s 00:00 [##################] 100.0%
+ libsigsegv-2.13  19KiB                                                                          5.2MiB/s 00:00 [##################] 100.0%
+ libunistring-0.9.10  492KiB                                                                     8.2MiB/s 00:00 [##################] 100.0%
+ gawk-5.1.0  1.0MiB                                                                              9.7MiB/s 00:00 [##################] 100.0%
+ module-import-compiled  79KiB                                                                  10.5MiB/s 00:00 [##################] 100.0%
+ module-import-compiled  171KiB                                                                  6.3MiB/s 00:00 [##################] 100.0%
+ module-import-compiled  46KiB                                                                   5.4MiB/s 00:00 [##################] 100.0%
+ ncurses-6.2.20210619  634KiB                                                                    1.7MiB/s 00:00 [##################] 100.0%
+ patch-2.7.6  100KiB                                                                             9.9MiB/s 00:00 [##################] 100.0%
+ perl-5.34.0  14.0MiB                                                                            7.2MiB/s 00:02 [##################] 100.0%
+ pkg-config-0.29.2  187KiB                                                                       3.4MiB/s 00:00 [##################] 100.0%
+ pkg-config-0.29.2  187KiB                                                                       7.3MiB/s 00:00 [##################] 100.0%
+ sed-4.8  224KiB                                                                                 3.4MiB/s 00:00 [##################] 100.0%
+ guile-3.0.7  6.9MiB                                                                             5.8MiB/s 00:01 [##################] 100.0%
+ tar-1.34  745KiB                                                                                8.6MiB/s 00:00 [##################] 100.0%
+ ld-wrapper-0  17KiB                                                                             8.1MiB/s 00:00 [##################] 100.0%
+ make-4.3  449KiB                                                                                8.9MiB/s 00:00 [##################] 100.0%
+ texinfo-6.7  1.2MiB                                                                             6.0MiB/s 00:00 [##################] 100.0%
+ xz-5.2.5  359KiB                                                                                9.3MiB/s 00:00 [##################] 100.0%
+ zlib-1.2.11  87KiB                                                                             15.6MiB/s 00:00 [##################] 100.0%
+ zlib-1.2.11  77KiB                                                                              6.3MiB/s 00:00 [##################] 100.0%
+ libfontenc-1.1.4  15KiB                                                                         7.1MiB/s 00:00 [##################] 100.0%
+ gcc-10.3.0  24.0MiB                                                                             7.4MiB/s 00:03 [##################] 100.0%
+ libpng-1.6.37  226KiB                                                                           7.8MiB/s 00:00 [##################] 100.0%
+building /gnu/store/f4wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv...
+/ 'patch-source-shebangs' phasebuilder for `/gnu/store/f4wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv' failed with exit code 1
+build of /gnu/store/f4wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv failed
+View build log at '/var/log/guix/drvs/f4/wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv.gz'.
+cannot build derivation `/gnu/store/ff4p9d7krsvkknqjk38qh1a8ca9vzij4-profile.drv': 1 dependencies couldn't be built
+guix package: error: build of `/gnu/store/ff4p9d7krsvkknqjk38qh1a8ca9vzij4-profile.drv' failed
+root@debian:~# gunzip /var/log/guix/drvs/f4/wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv.gz
+root@debian:~# cat /var/log/guix/drvs/f4/wjqjhwgn3b4qccyir8c36wpc0cc8py-test-42.0.drv
+starting phase `set-SOURCE-DATE-EPOCH'
+phase `set-SOURCE-DATE-EPOCH' succeeded after 0.0 seconds
+starting phase `set-paths'
+environment variable `PATH' set to `/gnu/store/g2ajyl8xk9aarxrgjbng2hkj3qm2v0z2-tar-1.34/bin:/gnu/store/iixwcv3k49ks1rf34pjgfzmzyhhgwng3-gzip-1.10/bin:/gnu/store/s3hl12jxz9ybs7nsy7kq7ybzz7qnzmsg-bzip2-1.0.8/bin:/gnu/store/c8isj4jq6knv0icfgr43di6q3nvdzkx7-xz-5.2.5/bin:/gnu/store/4ic6244i3ca4b4rxc2wnrgllsidyishv-file-5.39/bin:/gnu/store/ahmmvw21p11ik80lg1f953y7fd8bqkjm-diffutils-3.8/bin:/gnu/store/z39hnrwds1dgcbpfgj8dnv2cngjb2xbl-patch-2.7.6/bin:/gnu/store/39rsx3nl4c31952jybbjb8d6idr5hx7r-findutils-4.8.0/bin:/gnu/store/690qz3fg334dpwn3pn6k59n4wc943p2b-gawk-5.1.0/bin:/gnu/store/wxgv6i8g0p24q5gcyzd0yr07s8kn9680-sed-4.8/bin:/gnu/store/xjwp2hsd9256icjjybfrmznppjicywf6-grep-3.6/bin:/gnu/store/d251rfgc9nm2clzffzhgiipdvfvzkvwi-coreutils-8.32/bin:/gnu/store/55cbpsi18mahg131nmiya6km5b4mscfa-make-4.3/bin:/gnu/store/4y5m9lb8k3qkb1y9m02sw9w9a6hacd16-bash-minimal-5.1.8/bin:/gnu/store/s2pg5k98fl2g2szg9dykxyd9zl3xihv9-ld-wrapper-0/bin:/gnu/store/rc781v4k0drhaqn90xfwwpspki5x0bvf-binutils-2.37/bin:/gnu/store/069aq2v993kpc41yabp5b6vm4wb9jkhg-gcc-10.3.0/bin:/gnu/store/5h2w4qi9hk1qzzgi1w83220ydslinr4s-glibc-2.33/bin:/gnu/store/5h2w4qi9hk1qzzgi1w83220ydslinr4s-glibc-2.33/sbin'
+environment variable `BASH_LOADABLES_PATH' unset
+environment variable `C_INCLUDE_PATH' set to `/gnu/store/s3hl12jxz9ybs7nsy7kq7ybzz7qnzmsg-bzip2-1.0.8/include:/gnu/store/c8isj4jq6knv0icfgr43di6q3nvdzkx7-xz-5.2.5/include:/gnu/store/4ic6244i3ca4b4rxc2wnrgllsidyishv-file-5.39/include:/gnu/store/690qz3fg334dpwn3pn6k59n4wc943p2b-gawk-5.1.0/include:/gnu/store/55cbpsi18mahg131nmiya6km5b4mscfa-make-4.3/include:/gnu/store/rc781v4k0drhaqn90xfwwpspki5x0bvf-binutils-2.37/include:/gnu/store/069aq2v993kpc41yabp5b6vm4wb9jkhg-gcc-10.3.0/include:/gnu/store/5h2w4qi9hk1qzzgi1w83220ydslinr4s-glibc-2.33/include:/gnu/store/6mjww4iz4xdan74d5bbjfh7il8rngfkk-linux-libre-headers-5.10.35/include'
+environment variable `CPLUS_INCLUDE_PATH' set to `/gnu/store/s3hl12jxz9ybs7nsy7kq7ybzz7qnzmsg-bzip2-1.0.8/include:/gnu/store/c8isj4jq6knv0icfgr43di6q3nvdzkx7-xz-5.2.5/include:/gnu/store/4ic6244i3ca4b4rxc2wnrgllsidyishv-file-5.39/include:/gnu/store/690qz3fg334dpwn3pn6k59n4wc943p2b-gawk-5.1.0/include:/gnu/store/55cbpsi18mahg131nmiya6km5b4mscfa-make-4.3/include:/gnu/store/rc781v4k0drhaqn90xfwwpspki5x0bvf-binutils-2.37/include:/gnu/store/069aq2v993kpc41yabp5b6vm4wb9jkhg-gcc-10.3.0/include/c++:/gnu/store/069aq2v993kpc41yabp5b6vm4wb9jkhg-gcc-10.3.0/include:/gnu/store/5h2w4qi9hk1qzzgi1w83220ydslinr4s-glibc-2.33/include:/gnu/store/6mjww4iz4xdan74d5bbjfh7il8rngfkk-linux-libre-headers-5.10.35/include'
+environment variable `LIBRARY_PATH' set to `/gnu/store/s3hl12jxz9ybs7nsy7kq7ybzz7qnzmsg-bzip2-1.0.8/lib:/gnu/store/c8isj4jq6knv0icfgr43di6q3nvdzkx7-xz-5.2.5/lib:/gnu/store/4ic6244i3ca4b4rxc2wnrgllsidyishv-file-5.39/lib:/gnu/store/690qz3fg334dpwn3pn6k59n4wc943p2b-gawk-5.1.0/lib:/gnu/store/rc781v4k0drhaqn90xfwwpspki5x0bvf-binutils-2.37/lib:/gnu/store/5h2w4qi9hk1qzzgi1w83220ydslinr4s-glibc-2.33/lib:/gnu/store/4jdghmc65q7i7ib89zmvq66l0ghf7jc4-glibc-2.33-static/lib:/gnu/store/fnr1z6xsan0437r0yg48d0y8k32kqxby-glibc-utf8-locales-2.33/lib'
+environment variable `GUIX_LOCPATH' set to `/gnu/store/fnr1z6xsan0437r0yg48d0y8k32kqxby-glibc-utf8-locales-2.33/lib/locale'
+phase `set-paths' succeeded after 0.0 seconds
+starting phase `install-locale'
+using 'en_US.utf8' locale for category "LC_ALL"
+phase `install-locale' succeeded after 0.0 seconds
+starting phase `unpack'
+test/
+test/configure
+test/Makefile
+test/build_output/
+test/build_output/index.js
+phase `unpack' succeeded after 0.0 seconds
+starting phase `bootstrap'
+GNU build system bootstrapping not needed
+phase `bootstrap' succeeded after 0.0 seconds
+starting phase `patch-usr-bin-file'
+phase `patch-usr-bin-file' succeeded after 0.0 seconds
+starting phase `patch-source-shebangs'
+patch-shebang: ./configure: changing `/bin/bash' to `/gnu/store/4y5m9lb8k3qkb1y9m02sw9w9a6hacd16-bash-minimal-5.1.8/bin/bash'
+error: in phase 'patch-source-shebangs': uncaught exception:
+system-error "mkstemp" "~A" ("Permission denied") (13)
+phase `patch-source-shebangs' failed after 0.0 seconds
+Backtrace:
+          11 (primitive-load "/gnu/store/3nlmzln5mw3vyq4qyfl9ypvr9yp…")
+In guix/build/gnu-build-system.scm:
+    906:2 10 (gnu-build #:source _ #:outputs _ #:inputs _ #:phases . #)
+In ice-9/boot-9.scm:
+  1752:10  9 (with-exception-handler _ _ #:unwind? _ # _)
+In srfi/srfi-1.scm:
+    634:9  8 (for-each #<procedure 7ffff4fecf80 at guix/build/gnu-b…> …)
+In ice-9/boot-9.scm:
+  1752:10  7 (with-exception-handler _ _ #:unwind? _ # _)
+In guix/build/gnu-build-system.scm:
+   927:23  6 (_)
+In srfi/srfi-1.scm:
+    634:9  5 (for-each #<procedure 7ffff4fb95c0 at guix/build/utils…> …)
+In guix/build/utils.scm:
+    268:8  4 (call-with-ascii-input-file "./configure" #<procedure 7…>)
+  1068:25  3 (patch #<input: ./configure 14> "/gnu/store/4y5m9lb8k3…" …)
+In unknown file:
+           2 (mkstemp! "./configure.XXXXXX" #<undefined>)
+In ice-9/boot-9.scm:
+  1685:16  1 (raise-exception _ #:continuable? _)
+  1685:16  0 (raise-exception _ #:continuable? _)
+
+ice-9/boot-9.scm:1685:16: In procedure raise-exception:
+In procedure mkstemp: Permission denied
