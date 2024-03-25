@@ -13,9 +13,6 @@ const config = {
 			checkOrigin: false,
 		}
 	},
-	optimizeDeps: {
-		exclude: ["markdown-pdf", "markdownpdf"],
-	},
 };
 
 export default config;
