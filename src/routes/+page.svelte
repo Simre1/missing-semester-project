@@ -29,18 +29,16 @@
 	let pdfWrapper: HTMLDivElement;
 
 	async function compile() {
-		compileButton.style.transition = '2s';
-		compileButton.style.transform = 'rotate(360deg)';
-		setTimeout(() => {
-			compileButton.style.transition = '0s';
-			compileButton.style.transform = 'rotate(0deg)';
-		}, 2000);
+		compileButton.style.transition = '20s linear';
+		compileButton.style.transform = 'rotate(3600deg)';
 		let pdfPromise;
 		if (hiddenCSS) {
 			pdfPromise = await makePdf(mdValue);
 		} else {
 			pdfPromise = await makePdf(mdValue, cssValue);
 		}
+		compileButton.style.transition = '0s';
+		compileButton.style.transform = 'rotate(0deg)';
 		pdfPromise.blob().then((res) => {
 			let reader = new FileReader();
 			reader.readAsDataURL(res);
@@ -134,11 +132,11 @@
 		</p>
 		<h2>Used open-source projects, libraries and trademarks:</h2>
 		<p>
-			For the creation of McDownie's PDF Party, we entered the JavaScript Hell and use a number
-			open-source projects as listed below:
+			For the creation of McDownie's PDF Party, we entered the JavaScript Hell (although relying TypeScript as well)
+			and use a number open-source projects as listed below:
 		</p>
 		<ul>
-			<li><MITLicense name="markdown-pdf" owner="Alan Shaw" year="2013" /></li>
+			<li><MITLicense name="md-to-pdf" owner="Simon Hänisch" year="2024" /></li>
 			<li><ApacheLicense name="Material Symbols" owner="Google" year="2024" /></li>
 			<li>
 				<MITLicense name="Monaco Editor" owner="Microsoft Corporation" year="2016 - present" />
