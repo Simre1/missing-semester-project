@@ -132,7 +132,7 @@
 		</p>
 		<h2>Used open-source projects, libraries and trademarks:</h2>
 		<p>
-			For the creation of McDownie's PDF Party, we entered the JavaScript Hell (although relying TypeScript as well)
+			For the creation of McDownie's PDF Party, we entered the JavaScript Hell (although relying on TypeScript as well)
 			and use a number open-source projects as listed below:
 		</p>
 		<ul>
