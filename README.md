@@ -60,7 +60,7 @@ Just pull the container from `ghcr.io/simre1/missing-semester-project:release` a
 
 
 # Acknowledgment
-For the creation of McDownie's PDF Party, we entered the JavaScript Hell (although relying on TypeScript as well) and use a number open-source projects as listed below:
+For the creation of MarkDownie's PDF Party, we entered the JavaScript Hell (although relying on TypeScript as well) and use a number open-source projects as listed below:
 
  - md-to-pdf
    The MIT License (MIT)
