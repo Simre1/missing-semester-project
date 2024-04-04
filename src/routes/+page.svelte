@@ -115,8 +115,8 @@
 <main bind:this={mainElement}>
 	<dialog bind:this={aboutDialog}>
 		<button id="closeabout" on:click={toggleAbout}>Close<span>Close the help dialog</span></button>
-		<h1>About <span>McDownie's PDF Party</span></h1>
-		<p>Welcome to McDownie's PDF Party - your easy to use Markdown to PDF converter.</p>
+		<h1>About <span>MarkDownie's PDF Party</span></h1>
+		<p>Welcome to MarkDownie's PDF Party - your easy to use Markdown to PDF converter.</p>
 		<p>
 			To convert Markdown encoded text, paste it into the editor on the left. Press then compile
 			button (<span>&#58837</span>) to create a PDF out of it, which gets then displayed on the
